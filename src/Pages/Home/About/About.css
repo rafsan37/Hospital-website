@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.about-container{
+    background-color: #eaf5ff;
+}
+.btn-12{
+    width: 210px;
+
+}
+.custom-text{
+    line-height: 25px;
+}
