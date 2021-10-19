@@ -1,70 +1,65 @@
-import React from 'react';
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faLock, faUser } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+    Button,
+    Container,
+    Form,
+    FormControl,
+    InputGroup,
+} from "react-bootstrap";
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../../Hooks/useAuth';
 
 const Signup = () => {
+    const {error, getUserPassword, getUserEmail , handleSubmitForm, singInUsingGoogle} = useAuth();
 
-    // const handleRegistration = () {
-
-    // }
     return (
         <div>
            
-           <div className="signup-form">
-                <form action="/examples/actions/confirmation.php" method="post" />
-                <h2>Sign Up</h2>
-                <p>Please fill in this form to create an account!</p>
+           <Container className="d-flex align-items-center justify-content-center my-5">
+
+            <Form className="border p-5" onSubmit={handleSubmitForm}>
+                <h3>Welcome to MediHelp!</h3>
+                <h6>Please SignUp!</h6>
                 <hr />
-                <div className="form-group">
-                    <div className="input-group">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text">
-                                <span className="fa fa-user"></span>
-                            </span>
-                        </div>
-                        <input type="text" className="form-control" name="username" placeholder="Username" required="required" />
-                    </div>
+                <InputGroup className="mb-3">
+                    <InputGroup.Text id="basic-addon1" ><FontAwesomeIcon icon={faUser}></FontAwesomeIcon></InputGroup.Text>
+                    <FormControl 
+                        required placeholder="Enter Your Name"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                    />
+                </InputGroup>
+                <InputGroup className="mb-3">
+                    <InputGroup.Text id="basic-addon1" required><FontAwesomeIcon icon={faEnvelope} ></FontAwesomeIcon></InputGroup.Text>
+                    <FormControl onBlur={getUserEmail} required type="email"
+                        placeholder="Enter Your Email"
+                        aria-label="UserEmail"
+                        aria-describedby="basic-addon1"
+                    />
+                </InputGroup>
+                <InputGroup className="mb-3">
+                    <InputGroup.Text id="basic-addon1"><FontAwesomeIcon icon={faLock}></FontAwesomeIcon></InputGroup.Text>
+                    <FormControl onBlur={getUserPassword} required type="password"
+                        placeholder="Password" type="password"
+                        aria-label="Username"
+                        aria-describedby="basic-addon1"
+                    />
+                </InputGroup>
+                <Button type="submit" className="w-100" variant="outline-dark">Log-In </Button>
+                <p className="m-0">Or</p>
+                <Button onClick={singInUsingGoogle} className="w-100" variant="outline-dark">SingUp with <FontAwesomeIcon icon={faGoogle}></FontAwesomeIcon></Button>
+                <div className="text-danger">
+                    <p>{error}</p>
                 </div>
-                <div className="form-group">
-                    <div className="input-group">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text">
-                                <i className="fa fa-paper-plane"></i>
-                            </span>
-                        </div>
-                        <input type="email" className="form-control" name="email" placeholder="Email Address" required="required" />
-                    </div>
-                </div>
-                <div className="form-group">
-                    <div className="input-group">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text">
-                                <i className="fa fa-lock"></i>
-                            </span>
-                        </div>
-                        <input type="password" className="form-control" name="password" placeholder="Password" required="required" />
-                    </div>
-                </div>
-                <div className="form-group">
-                    <div className="input-group">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text">
-                                <i className="fa fa-lock"></i>
-                                <i className="fa fa-check"></i>
-                            </span>
-                        </div>
-                        <input type="password" className="form-control" name="password" placeholder="Confirm Password" required="required" />
-                    </div>
-                </div>
-                <div className="form-group">
-                    <label className="form-check-label"><input type="checkbox" required="required" /> I accept the <NavLink to="/login">Terms of Use</NavLink> &amp; <NavLink to="/login">Privacy Policy</NavLink></label>
-                </div>
-                <div className="form-group">
-                    <button type="submit" className="btn btn-primary btn-lg">Sign Up</button>
-                </div>
-
-                <div className="text-center">Already have an account? <NavLink to="/login">Login here</NavLink></div>
-
-            </div>
+                <p className="mt-2">
+                    <NavLink className="text-decoration-none" to="/login">
+                        Already have an Account? Please Login!
+                    </NavLink>
+                </p>
+            </Form>
+        </Container>
 
         </div>
     );

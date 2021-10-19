@@ -8,22 +8,24 @@ const Details = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('/data.JSON')
+        fetch('https://raw.githubusercontent.com/rafsan37/fake-data/main/data.JSON')
         .then(res => res.json())
         .then( data => setServices(data));
     }, []);
-    const singleService = services.filter(service =>
-        service.id === serviceId  
+    const singleService = services.find(service =>
+        service.id === Number(serviceId) 
     ); 
-            console.log(singleService);
+
     return (
-        <div>
-            <h1>this is details: {serviceId}</h1>
-            {
-                singleService.map((detail) => <Detail key={Detail.id}
-                 detail={detail}
-                ></Detail>)
-            }
+        <div className="text-center">
+            
+           <h1 className="text-warning my-3">
+               {
+                   singleService?.name
+               }
+           </h1>
+           <img src={singleService.img} alt=""/>
+           <p className="text-info my-3">{singleService.description}</p>
         </div>
     );
 };

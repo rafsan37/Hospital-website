@@ -4,7 +4,7 @@ import useAuth from '../../../Hooks/useAuth';
 import "./login.css"
 
 const Login = () => {
-    const {singInUsingGoogle} = useAuth();
+    const {singInUsingGoogle, signInWithEmail} = useAuth();
     const location = useLocation();
     const history = useHistory();
 
@@ -43,7 +43,7 @@ const Login = () => {
             </div>
         </div>        
         <div className="form-group">
-            <button type="submit" className="btn btn-primary login-btn btn-block">Log in</button>
+            <button type="submit" onClick={signInWithEmail} className="btn btn-primary login-btn btn-block">Log in</button>
         </div>
         <div className="clearfix">
             <label className="float-left form-check-label"><input type="checkbox"/> Remember me</label>
