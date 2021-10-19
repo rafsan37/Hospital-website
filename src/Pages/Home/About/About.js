@@ -12,8 +12,8 @@ const About = () => {
             <div className="text-center mb-5">
                 <h1 className="fw-bold">About US</h1>
                 <div className="d-flex align-items-center justify-content-center">
-                  <NavLink to ="/home" className="fs-5">Home</NavLink>/
-                  <NavLink to ="/about" className="fs-5">About</NavLink>
+                  <NavLink to ="/home" className="nav-style fs-5">Home</NavLink>/
+                  <NavLink to ="/about" className="nav-style fs-5">About</NavLink>
                 </div>
             </div>
                     {/* this about section  */}

@@ -18,8 +18,8 @@ const Contact = () => {
         <div className="container text-center mt-5">
             <h1 className="fw-bold">Contact US</h1>
             <div className="d-flex align-items-center justify-content-center">
-                <NavLink to ="/home" className="fs-5">Home</NavLink>/
-                 <NavLink to ="/contact" className="fs-5">Contact</NavLink>
+                <NavLink to ="/home" className="nav-style fs-5">Home</NavLink>/
+                 <NavLink to ="/contact" className="nav-style fs-5">Contact</NavLink>
             </div>
 
         </div>

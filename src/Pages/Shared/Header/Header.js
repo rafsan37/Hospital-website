@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from '../../../img/logo.png'
 import { Link, NavLink } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import useAuth from '../../../Hooks/useAuth';
 import './Header.css'
@@ -18,7 +19,7 @@ const Header = () => {
     <Nav className="me-auto">
       <Nav.Link as={Link} to="/home">Home</Nav.Link>
       <Nav.Link as={Link} to="/about">About</Nav.Link>
-      <Nav.Link as={Link}  to="/home#services">Services</Nav.Link>
+      <Nav.Link as={HashLink}  to="/home#services">Services</Nav.Link>
       <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
       <Nav.Link as={Link} to="/departments">Departments</Nav.Link>
     </Nav>
