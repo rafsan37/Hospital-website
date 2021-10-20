@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 
 const Appointment = () => {
     return (
-        <div>
+        <div className="container my-5">
             <Form>
   <Form.Group className="mb-3" controlId="formBasicEmail">
     <Form.Label>Your Name</Form.Label>
