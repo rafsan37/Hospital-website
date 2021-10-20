@@ -1,3 +1,10 @@
 .bg-img{
     background-image: url(../../../img/bg2.jpg);
+    background-position: top;
+    background-size: 100% 350px;
+    background-size: cover;
+}
+.bg-color{
+    background-color: #1f2e4b52;
+    background-size: cover;
 }
