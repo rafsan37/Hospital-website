@@ -11,9 +11,11 @@ const Consultant = ({consultant}) => {
                     <h5 className=" text-center card-title">{name}</h5>
                     <p className="text-center fs-3 text-info">{stay}</p>
                 </div>   
-                    <Link to="/appointment">
-                      <button className="btn btn-info ">Appointment</button>
-                    </Link>       
+                   <div className="text-center">
+                   <Link to="/appointment">
+                      <button className="btn btn-info   ">Appointment</button>
+                    </Link> 
+                    </div>      
             </div>
         </div>
     );
