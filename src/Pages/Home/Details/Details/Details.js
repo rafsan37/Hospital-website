@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { Card } from 'react-bootstrap';
 import { useParams } from 'react-router';
-import Detail from './Detail/Detail';
+import './Details.css'
+
 
 const Details = () => {
     const {serviceId} = useParams();
@@ -17,15 +19,19 @@ const Details = () => {
     ); 
 
     return (
-        <div className="text-center">
-            
-           <h1 className="text-warning my-3">
-               {
-                   singleService?.name
-               }
-           </h1>
-           <img src={singleService.img} alt=""/>
-           <p className="text-info my-3">{singleService.description}</p>
+        <div className="container my-3 d-flex justify-content-around">
+             <Card style={{"width":"22rem"}}>
+    <Card.Img variant="top" src={singleService?.img} className="img-size"/>
+    <Card.Body>
+      <Card.Title className="text-warning">{singleService?.name}</Card.Title>
+      <Card.Text>
+        {singleService?.description}
+      </Card.Text>
+    </Card.Body>
+   
+      <button className="btn btn-info">Appointment</button>
+    
+  </Card>
         </div>
     );
 };

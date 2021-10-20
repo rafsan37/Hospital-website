@@ -8,7 +8,7 @@ const Consultant = ({consultant}) => {
                     <img className="card-img-top img-size1 " src={img} alt="Card"/>
                 <div className="card-body service">
                     <h5 className=" text-center card-title">{name}</h5>
-                    <p className="text-center fs-3">{stay}</p>
+                    <p className="text-center fs-3 text-info">{stay}</p>
                 </div>
             </div>
         </div>

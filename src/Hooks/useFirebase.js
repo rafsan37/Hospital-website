@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthwentication from "../Pages/Login/Firebase/Firebase.init";
 
@@ -9,10 +9,12 @@ const useFirebase = () =>{
     const [error, setError] = useState(" ");
     const [email, SetEmail] = useState(" ");
     const [password, SetPassword] = useState(" ");
+    const [name, SetName] = useState(" ");
+    
 
     
     const auth = getAuth();
-
+// google login
     const singInUsingGoogle = () =>{
        
         const googleProvider = new GoogleAuthProvider();
@@ -43,13 +45,28 @@ const useFirebase = () =>{
         });
         return () => unsubscribed
     }, []);
-
+ // get user name
+    const getUserName = (event) => {
+        SetName(event.target.value);
+    };
+ // get user email
     const getUserEmail = (event) => {
         SetEmail(event.target.value);
     };
+  // get user password  
     const getUserPassword = (event) => {
         SetPassword(event.target.value);
     };
+// get user name funtion
+    const setUserName = () => {
+        updateProfile(auth.currentUser, {
+            displayName: name
+        }).then(() => { })
+            .catch((error) => {
+                setError(error.message);
+            });
+    }
+    // sign up funtion
 const handleSubmitForm = event => {
         event.preventDefault();
 
@@ -64,22 +81,17 @@ const handleSubmitForm = event => {
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
                 setUser(result.user);
-               
+               setUserName();
             })
             .catch((err) => {
                 setError(err.message)
             })
     };
-    const signInWithEmail = (e) => {
-        e.preventDefault();
-        setIsLoading(true);
-        signInWithEmailAndPassword(auth, email, password)
-            .then(result => {
-                setUser(result.user)
-            }).catch((err) => {
-                setError(err.message)
-            })
-            .finally(() => setIsLoading(false));
+// login funtion
+    const signInWithEmail = () => {
+        
+      return  signInWithEmailAndPassword(auth, email, password)
+            
     }
     return{
         isLoading,
@@ -90,7 +102,10 @@ const handleSubmitForm = event => {
         getUserPassword,
         getUserEmail,
         handleSubmitForm,
-        signInWithEmail
+        signInWithEmail,
+        getUserName
+        ,setUser,
+        setError
         
         
     }

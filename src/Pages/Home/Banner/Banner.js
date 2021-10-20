@@ -6,7 +6,7 @@ import banner3 from '../../../img/banner/3.jpg';
 
 const Banner = () => {
     return (
-        <div>
+        <div >
             <Carousel>
   <Carousel.Item>
     <img
@@ -14,19 +14,8 @@ const Banner = () => {
       src={banner2} alt=""
     />
     <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src={banner1} alt=""
-    />
-
-    <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <h3 className="text-color">X-Ray pleophos-D, 300 MA Siemens available</h3>
+      <p className="text-dark">In every life situation, we have a choice as to how we react. At no time is this</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -36,8 +25,19 @@ const Banner = () => {
     />
 
     <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      <h3 className="text-color">24hours ECG services including machine report</h3>
+      <p className="text-dark">Patients who were checked for shortness of breath at the beginning of hospice care.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src={banner1} alt=""
+    />
+
+    <Carousel.Caption>
+      <h3 className="text-color">24 hours patient transport vehicle available.</h3>
+      <p className="text-dark">Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>

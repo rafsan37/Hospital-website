@@ -12,9 +12,11 @@ const Service = ({service}) => {
                     <h5 className="text-center card-title">{name}</h5>
                     <p className="text-center fs-3 mt-2">{description.slice(0, 74)} </p>
                     <p className="text-center fs-3 mt-2">Price: ${price} </p>
-                    <Link to={`/details/${id}`}>
-                     <button className="custom-btn btn-5"><span>Details</span></button>
-                    </Link>
+                    <div className="text-center">
+                         <Link to={`/details/${id}`}>
+                         <button className="custom-btn btn-5"><span>Details</span></button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </div>
