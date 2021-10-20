@@ -71,7 +71,7 @@ const handleSubmitForm = event => {
         event.preventDefault();
 
         console.log(email, password);
-        if (password.length > 6) {
+        if (password.length < 6) {
             setError("password should have 6 character")
             return;
         } if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {

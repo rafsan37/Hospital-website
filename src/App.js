@@ -14,6 +14,7 @@ import Contact from './Pages/Contact/Contact';
 import Departments from './Pages/Department/Departments';
 import PrivateRoute from './Pages/Login/PrivateRoute/privateRoute';
 import Signup from './Pages/Login/Signup/Signup';
+import Appointment from './Pages/Home/Appointment/Appointment';
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
              </Route>
              <PrivateRoute path="/details/:serviceId">
                <Details></Details>          
+             </PrivateRoute>
+             <PrivateRoute path="/appointment">
+               <Appointment></Appointment>        
              </PrivateRoute>
              <Route path="/about">
                <About></About>          
